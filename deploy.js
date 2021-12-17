@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const HDWalletProvider = require('@truffle/hdwallet-provider')
 const Web3 = require('web3')
 const {
@@ -5,10 +7,9 @@ const {
   evm: { bytecode },
 } = require('./compile')
 
-const MNEMONIC =
-  'book scatter congress dilemma lizard target bomb video above moment coconut glow'
-const PROVIDER_URL =
-  'https://ropsten.infura.io/v3/64162750c6d64786ab83133f4e92add8'
+const MNEMONIC = process.env.MNEMONIC
+
+const PROVIDER_URL = process.env.PROVIDER_URL
 
 const provider = new HDWalletProvider({
   mnemonic: MNEMONIC,
